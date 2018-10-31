@@ -21,11 +21,15 @@ class ProductController
 {
     public function store()
     {
-        $product = new Product();
-        $product->setName($_POST['name']);
-        $product->setDescription($_POST['description']);
-        $product->setPrice($_POST['price']);
-        $product->create();
+        if(empty($_POST['name'])){
+            echo json_encode('campo nome esta em branco');
+        }else {
+            $product = new Product();
+            $product->setName($_POST['name']);
+            $product->setDescription($_POST['description']);
+            $product->setPrice($_POST['price']);
+            $product->create();
+        }
     }
 
 }

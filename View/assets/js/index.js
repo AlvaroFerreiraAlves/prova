@@ -6,6 +6,6 @@ function saveProduct() {
         method: "POST",
         data: data,
     }).done(function (data) {
-
+        console.log(data);
     })
 }
