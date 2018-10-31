@@ -6,8 +6,11 @@
  * Time: 00:18
  */
 
-class product
+include('../Model/Crud.php');
+
+class product extends Crud
 {
+    protected $table = 'products';
     private $name;
     private $description;
     private $price;
@@ -46,6 +49,17 @@ class product
         $this->price = $price;
     }
 
+
+    public function create()
+    {
+        $db = Connection::conectDB();
+        $sql  = "INSERT INTO $this->table (name, description, price) VALUES (:name, :description, :price)";
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(':name', $this->name);
+        $stmt->bindParam(':description', $this->description);
+        $stmt->bindParam(':price', $this->price);
+        return $stmt->execute();
+    }
 
 
 }
