@@ -7,18 +7,19 @@ function saveProduct() {
         data: data,
         dataType: 'json'
     }).done(function (data) {
-      console.log(data);
+        console.log(data);
 
-      if(data==""){
-          $(".display-success").html("<ul>Cadastrado!</ul>");
-          $(".display-success").css("display","block");
-          $('.display-error').hide();
+        if (data == "") {
+            $(".display-success").html("<ul>Cadastrado!</ul>");
+            $(".display-success").css("display", "block");
+            $("#form-product").trigger('reset');
+            $('.display-error').hide();
 
-      }else{
-          $(".display-error").html("<ul>"+data+"</ul>");
-          $(".display-error").css("display","block");
-          $('.display-success').hide();
-      }
+        } else {
+            $(".display-error").html("<ul>" + data + "</ul>");
+            $(".display-error").css("display", "block");
+            $('.display-success').hide();
+        }
 
     })
 }
