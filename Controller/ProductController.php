@@ -5,7 +5,7 @@
  * Date: 31/10/18
  * Time: 01:28
  */
-include('../Model/Product.php');
+require_once('../Model/Product.php');
 
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['method'])) {
     $method = $_POST['method'];
@@ -39,16 +39,10 @@ class ProductController
             $product->setName($_POST['name']);
             $product->setDescription($_POST['description']);
             $product->setPrice($_POST['price']);
+            $product->setCategory($_POST['categories']);
             $product->create();
 
         }
-
-
-
-
-
-
-
 
     }
 

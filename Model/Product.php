@@ -6,7 +6,8 @@
  * Time: 00:18
  */
 
-include('../Model/Crud.php');
+require_once('Crud.php');
+require_once('Category.php');
 
 class product extends Crud
 {
@@ -14,6 +15,7 @@ class product extends Crud
     private $name;
     private $description;
     private $price;
+    private $category;
 
 
     public function getName()
@@ -49,15 +51,21 @@ class product extends Crud
         $this->price = $price;
     }
 
+    public function setCategory($category)
+    {
+        $this->category = $category;
+    }
+
 
     public function create()
     {
         $db = Connection::conectDB();
-        $sql  = "INSERT INTO $this->table (name, description, price) VALUES (:name, :description, :price)";
+        $sql  = "INSERT INTO $this->table (name, description, price, categories_id) VALUES (:name, :description, :price, :categories_id)";
         $stmt = $db->prepare($sql);
         $stmt->bindParam(':name', $this->name);
         $stmt->bindParam(':description', $this->description);
         $stmt->bindParam(':price', $this->price);
+        $stmt->bindParam(':categories_id', $this->category);
         return $stmt->execute();
     }
 

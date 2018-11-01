@@ -1,9 +1,9 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: root
- * Date: 31/10/18
- * Time: 00:53
+ * User: ALVARO
+ * Date: 01/11/2018
+ * Time: 13:03
  */
 
 class Connection
@@ -24,7 +24,7 @@ class Connection
 
         if (!isset(self::$instance)) {
             try {
-                self::$instance = new PDO("mysql:host=localhost;dbname=prova", "root", "password");
+                self::$instance = new PDO("mysql:host=localhost;dbname=prova", "root", "");
                 self::$instance->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             } catch (PDOException $e) {
                 echo "Erro: " . $e->getMessage();

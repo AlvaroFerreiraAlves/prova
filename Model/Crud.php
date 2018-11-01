@@ -5,8 +5,7 @@
  * Date: 31/10/2018
  * Time: 11:54
  */
-include('../Conexao/Connection.php');
-
+require_once('Connection.php');
 
 abstract class Crud
 {
@@ -16,7 +15,7 @@ abstract class Crud
     public function all()
     {
         $db = Connection::conectDB();
-        $sql  = "SELECT * FROM $this->table";
+        $sql  = "select p.name, p.description, p.price , c.name as categoria from products p join categories c on c.id = p.categories_id;";
         $stmt = $db->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll();
