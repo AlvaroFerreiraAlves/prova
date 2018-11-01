@@ -21,15 +21,34 @@ class ProductController
 {
     public function store()
     {
-        if(empty($_POST['name'])){
-            echo json_encode('campo nome esta em branco');
-        }else {
+
+        $errorMSG = "";
+
+        if (empty($_POST["name"])) {
+            $errorMSG = "<li>Nome é obrigatório</li>";
+        }
+
+        if (empty($_POST["description"])) {
+            $errorMSG .= "<li>Descrição é obrigatório</li>";
+        }
+
+        echo json_encode([$errorMSG]);
+
+        if (empty($errorMSG)){
             $product = new Product();
             $product->setName($_POST['name']);
             $product->setDescription($_POST['description']);
             $product->setPrice($_POST['price']);
             $product->create();
         }
+
+
+
+
+
+
+
+
     }
 
 }

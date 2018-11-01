@@ -68,6 +68,13 @@
 
 <div class="container">
 
+    <div class="alert alert-danger print-error-msg" style="display:none">
+        <ul></ul>
+    </div>
+
+    <div class="alert alert-danger display-error" style="display: none">
+    </div>
+
     <form class="form-horizontal" id="form-product" method="post" action="../../Controller/ProductController.php">
         <fieldset>
 
