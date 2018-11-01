@@ -75,6 +75,9 @@
     <div class="alert alert-danger display-error" style="display: none">
     </div>
 
+    <div class="alert alert-success display-success" style="display: none">
+    </div>
+
     <form class="form-horizontal" id="form-product" method="post" action="../../Controller/ProductController.php">
         <fieldset>
 

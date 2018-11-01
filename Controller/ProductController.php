@@ -40,6 +40,7 @@ class ProductController
             $product->setDescription($_POST['description']);
             $product->setPrice($_POST['price']);
             $product->create();
+
         }
 
 

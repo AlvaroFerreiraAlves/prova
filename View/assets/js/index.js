@@ -9,8 +9,17 @@ function saveProduct() {
     }).done(function (data) {
       console.log(data);
 
-        $(".display-error").html("<ul>"+data+"</ul>");
-        $(".display-error").css("display","block");
+      if(data==""){
+          $(".display-success").html("<ul>Cadastrado!</ul>");
+          $(".display-success").css("display","block");
+          $('.display-error').hide();
+
+      }else{
+          $(".display-error").html("<ul>"+data+"</ul>");
+          $(".display-error").css("display","block");
+          $('.display-success').hide();
+      }
+
     })
 }
 
