@@ -37,6 +37,7 @@ require_once('../../Model/Category.php')
             <ul class="nav navbar-nav">
                 <li class="active"><a href="../product/form-product.php">Cadastrar Item <span class="sr-only">(current)</span></a></li>
                 <li><a href="../product/list-products.php">Visulizar Itens</a></li>
+                <li><a href="../budget/form-budget.php">Cadastrar Orçamento</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">Dropdown <span class="caret"></span></a>
@@ -82,7 +83,7 @@ require_once('../../Model/Category.php')
     <div class="alert alert-success display-success" style="display: none">
     </div>
 
-    <form class="form-horizontal" id="form-product" method="post" action="../../Controller/ProductController.php">
+    <form class="form-horizontal" id="form-product">
         <fieldset>
 
             <!-- Form Name -->
@@ -144,6 +145,8 @@ require_once('../../Model/Category.php')
                     </button>
                 </div>
             </div>
+
+
 
         </fieldset>
     </form>

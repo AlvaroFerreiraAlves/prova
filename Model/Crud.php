@@ -15,7 +15,7 @@ abstract class Crud
     public function all()
     {
         $db = Connection::conectDB();
-        $sql  = "select p.name, p.description, p.price , c.name as categoria from products p join categories c on c.id = p.categories_id;";
+        $sql  = "select p.id, p.name, p.description, p.price , c.name as categoria from products p join categories c on c.id = p.categories_id;";
         $stmt = $db->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll();
